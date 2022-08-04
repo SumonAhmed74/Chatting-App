@@ -1,0 +1,460 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ol,ul{
+    list-style: none;
+}
+
+.registration-part .right img{
+    width: 100%;
+    height: 100vh;
+}
+
+.registration-part .box{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 70px;
+}
+
+.registration-part .left h2{
+    font-family: 'Nunito', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #11175D;
+    margin-top: 70px;
+}
+/* .registration-part .MuiGrid-item{
+    background-image: url(../public/assets/images/registration-pic.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.registration-part .left p{
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #11175D;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.registration-part .left .MuiPaper-root{
+    margin-bottom: -20px;
+}
+
+.registration-part .left .inputBox{
+    width: 350px;
+    margin-top: 38px;
+    position: relative;
+}
+
+.registration-part .left .MuiFormHelperText-sizeMedium {
+    margin: 0;
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    bottom: -23px;
+    left: 3px;
+}
+
+.registration-part .left .signUpBtn{
+    margin-top: 35px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 137px;
+    border-radius: 86px;
+    background: #5F35F5;
+    /* text-transform: lowercase; */
+}
+
+
+/* ========================
+    login-part start
+==============================*/
+.login-part .right img{
+    width: 100%;
+    height: 100vh;
+}
+
+.login-part .box{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 80px;
+}
+
+.login-part .left h1{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #11175D;
+    margin-top: 140px;
+}
+
+.login-part .login-option{
+    display: flex;
+}
+
+.login-part .login-option .items{
+    margin-right: 19px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #03014C;
+    letter-spacing: 2%;
+    padding: 20px 38px 20px 60px;
+    border: 1px solid rgba(3, 1, 76, .098);
+    margin-top: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-part .items{
+    position: relative;
+}
+
+.login-part .login-option .items img {
+    position: absolute;
+    top: 18px;
+    left: 26px;
+}
+
+.login-part .inputBox{
+    margin-top: 30px;
+    width: 370px;
+    height: 78px;
+    position: relative;
+}
+
+.login-part .MuiOutlinedInput-notchedOutline{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(3, 1, 76, .098);
+}
+
+.login-part .inputBox .MuiFormHelperText-root{
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.login-part .left .MuiButton-root{
+    padding: 18px 113px;
+    margin-top: 25px;
+    text-transform: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    background: #5F34F5;
+}
+
+.registration-part .left .MuiButton-root{
+    padding: 17px 146px;
+    margin-top: 25px;
+    text-transform: none; 
+
+}
+
+.login-part .left .msg{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.login-part .left .msg a{
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #EA6C00;
+    text-decoration: none;
+}
+
+.registration-part .left .msg{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.registration-part .left .msg a{
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #EA6C00;
+    text-decoration: none;
+}
+
+.login-part .left .icon-box{
+    position: relative;
+    width: 370px;
+}
+
+.login-part .left .icon{
+    position: absolute;
+    bottom: 35px;
+    right: 0;
+    color: #03014c63;
+    font-size: 20px;
+}
+
+/* ===============================
+    Home-page Leftbar part Start 
+=====================================*/
+
+.leftbar{
+    height: 100vh;
+    background: #5F35F5;
+    margin: 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.leftbar .profile-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;  
+    margin-top: 28px;
+}
+
+.leftbar .icons li{
+    margin-top: 55px;
+}
+
+.leftbar .icons .icon{
+    font-size: 32px;
+    color: #BAD1FF;  
+}
+
+.leftbar .icons .active{
+    background: #fff;
+    width: 130px;
+    padding: 16px 16px;
+    margin-left: auto;
+    margin-top: 40px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+}
+
+.leftbar .icons .active .icon{
+    color: #5F34F5;
+    margin-left: -17px;
+}
+
+.leftbar .icons li::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7px;
+    height: 100%;
+    background: #5F34F5;
+    content: "";
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.leftbar h5{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .modalBox{
+    width: 500px;
+    height: 400px;
+    background: #fff;
+}
+
+.searchBox{
+    margin-top: 15px;
+    position: relative;
+}
+
+.searchBox input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 78px;
+    border: 0;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+}
+
+.searchBox input{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3D3D3D;
+}
+
+.searchBox .searchIcon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 23px;
+    font-size: 18px;
+    color:#372579;
+}
+.searchBox .menu{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 23px;
+    font-size: 18px;
+    color:#5F35F5;
+}
+
+.gruph-List{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 12px;
+    border: 0;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    margin-top: 22px;
+    height: 300px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.friendList {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 12px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    margin-top: 22px;
+    height: 224px;
+    overflow-y: scroll;
+    position: relative;
+}
+.friends {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 12px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    margin-top: 22px;
+    height: 619px;
+    overflow-y: scroll;
+    position: relative;
+}
+.userList {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 12px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    margin-top: 22px;
+    height: 619px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.gruph-List .name{
+    margin-left: -50px;
+}
+
+.friends .name{
+    margin-left: -13px;
+}
+.userList .name{
+    margin-left: -13px;
+}
+
+.userList .userBtn button{
+    width: 30px;
+    height: 30px;
+    background: #5F35F5;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.gruph-List .menuIcon {
+    position: absolute;
+    top: 19px;
+    right: 22px;
+    font-size: 18px;
+    color: #5F35F5;
+}
+
+.gruph-List h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 14px;
+}
+.gruph-List h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+}
+.gruph-List p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4D4D4D;
+}
+
+.gruph-List .box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+    padding-bottom: 13px;
+    margin-top: 14px; 
+}
+
+.gruph-List .box:last-child{
+    border-bottom: 0;
+}
+
+.gruph-List .image img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.gruph-List .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gruph-List .name{
+    justify-content: center;
+    align-items: center;
+}
+
+.gruph-List .btn button{
+    width: 85px;
+    height: 30px;
+    background: #5F35F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
