@@ -13,6 +13,8 @@ const Home = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const [emailVeryfication,setEmailVeryfication] = useState(false)
+ 
+  
   useEffect(()=>{
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -23,6 +25,8 @@ const Home = () => {
     });
   },[])
 
+ 
+ 
   return (
   <>
     { 

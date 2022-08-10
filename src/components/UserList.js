@@ -28,14 +28,13 @@ const UserList = () => {
     });
   },[change])
 
-
+ 
   useEffect(()=>{
     const friendRequestArr=[]
     const friendRequestRef = ref(db,'friendRequest');
     onValue(friendRequestRef, (snapshot) => {
     const data = snapshot.val();
         snapshot.forEach(item=>{
-        
                 friendRequestArr.push(item.val().receverid+item.val().senderid)
 
           })
@@ -46,9 +45,10 @@ const UserList = () => {
 
 const friendRequestHandler = (info) =>{
   set(push(ref(db, 'friendRequest')), {
-    name:auth.currentUser.displayName,
+    sendername:auth.currentUser.displayName,
+    senderid:auth.currentUser.uid,
     receverid:info.id,
-    senderid:auth.currentUser.uid
+    recevername:info.username,
   });
   setChange(!change)
 }
