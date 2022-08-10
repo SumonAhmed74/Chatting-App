@@ -8,9 +8,8 @@ const FriendRequest = () => {
     const auth = getAuth();
     const db = getDatabase();
     const [friendRequest,setFriendRequest] = useState([])
-    const [frndDlt,setFrndDlt] = useState(true)
+    const [frndDlt,setFrndDlt] = useState(false)
    
-
    
     useEffect(()=>{
         const friendRequestArr=[]
@@ -45,29 +44,33 @@ const FriendRequest = () => {
             remove(ref(db, 'friendRequest/'+frnds.id)).then(()=>{
                 setFrndDlt(!frndDlt)
             })
-          })
-          
+               
+          }) 
+
     }
+
 
   return (
     <div className='gruph-List friendList'>
         <h2>Friend  Request</h2>
             <BsThreeDotsVertical className='menuIcon'/>
       
-        {friendRequest.map(item=>(
-             <div className='box'>
-             <div className='image'>
-              <img src='./assets/images/friends1.png'/>
-             </div>
-              <div className='name'>
-                  <h3>{item.sendername}</h3>
-                  <p>Hi Guys, Wassup!</p>
-              </div>
-              <div className='btn'>
-                  <button onClick={()=> acceptFrndHandler(item)}>Accept</button>
-              </div>
-             </div>
+            {friendRequest.map(item=>(
+            <div className='box'>
+            <div className='image'>
+                <img src='./assets/images/friends1.png'/>
+            </div>
+                <div className='name'>
+                    <h3>{item.sendername}</h3>
+                    
+                    <p>Hi Guys, Wassup!</p>
+                </div>
+                <div className='btn'>
+                    <button onClick={()=> acceptFrndHandler(item)}>Accept</button>
+                </div>
+            </div>
         ))}
+        
         {friendRequest.length == 0 && <Alert severity="error">No friend request !</Alert>}
     </div>
   )
