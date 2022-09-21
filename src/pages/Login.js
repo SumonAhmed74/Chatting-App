@@ -1,17 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Grid,TextField,Button,Collapse,Alert,IconButton} from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
-import { Link,useNavigate } from 'react-router-dom'
+import { Link,useNavigate,useLocation } from 'react-router-dom'
 import { AiFillEye,AiFillEyeInvisible } from 'react-icons/ai'
 import { getAuth, signInWithEmailAndPassword,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const auth = getAuth();
   const navigate = useNavigate();
-  const [open, setOpen] = React.useState(false);
+  const location = useLocation();
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
+  // const [open2, setOpen2] = React.useState(true);
 
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
+  const [notifymsg,setNotifyMsg] = useState("")
 
   const [emailErr,setEmailErr] = useState("")
   const [passwordErr,setPasswordErr] = useState("")
@@ -20,6 +24,7 @@ const Login = () => {
   const [checkPassword,setcheckPassword] = useState(false)
   const [wrongEmailErr,setwrongEmailErr] = useState('')
   const [wrongPasswordErr,setwrongPasswordErr] = useState('')
+  
 
 const submitHandler =()=>{
   if(!email){
@@ -51,6 +56,14 @@ const submitHandler =()=>{
     })
   }
 }
+
+useEffect(()=>{
+  if(location.state != null){
+    setNotifyMsg(location.state.data)
+    setOpen2(true)
+  }
+},[])
+
 
 const iconHandler = ()=>{
   setcheckPassword(!checkPassword)
@@ -90,11 +103,12 @@ const iconHandler = ()=>{
     <div className='items'><img src='./assets/images/facebook.png'/> Login with Google</div>
     <div onClick={googleSignIn} className='items'><img src='./assets/images/google.png'/>Login with Facebook</div>
     </div>
-
+    {}
     <Collapse in={open}>
         <Alert
           variant="filled"
           severity="error"
+          className='aletBar'
           action={
             <IconButton
               aria-label="close"
@@ -110,6 +124,29 @@ const iconHandler = ()=>{
           sx={{ mb: 2 }}
         >
           {wrongEmailErr?wrongEmailErr:wrongPasswordErr? wrongPasswordErr:""}
+        </Alert>
+      </Collapse>
+
+      <Collapse in={open2}>
+        <Alert
+          variant="filled"
+          severity="error"
+          className='aletBar'
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen2(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+          sx={{ mb: 2 }}
+        >
+          {notifymsg}
         </Alert>
       </Collapse>
 
@@ -141,7 +178,10 @@ const iconHandler = ()=>{
 <Button onClick={submitHandler} className='loginBtn' variant="contained" disableElevation>
  Login to Continue
 </Button>
-<p className='msg'>Don't have an account ?<Link to="/">Sign up</Link></p>
+  <div className='LinkBox'>
+  <p className='msg'>Don't have an account ?<Link to="/">Sign up</Link></p>
+  <p className='msg forgot'><Link to='/reset'>Forgot Password ?</Link></p>
+  </div>
      </div>
     </div>
     

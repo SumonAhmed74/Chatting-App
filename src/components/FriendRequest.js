@@ -40,6 +40,7 @@ const FriendRequest = () => {
             receverid:frnds.receverid,
             senderid:frnds.senderid,
             sendername:frnds.sendername,
+            date: `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
           }).then(()=>{
             remove(ref(db, 'friendRequest/'+frnds.id)).then(()=>{
                 setFrndDlt(!frndDlt)
@@ -52,8 +53,10 @@ const FriendRequest = () => {
 
   return (
     <div className='gruph-List friendList'>
+        <div className='topBox'>
         <h2>Friend  Request</h2>
-            <BsThreeDotsVertical className='menuIcon'/>
+        <BsThreeDotsVertical className='menuIcon'/>
+        </div>
       
             {friendRequest.map(item=>(
             <div className='box'>
@@ -62,7 +65,6 @@ const FriendRequest = () => {
             </div>
                 <div className='name'>
                     <h3>{item.sendername}</h3>
-                    
                     <p>Hi Guys, Wassup!</p>
                 </div>
                 <div className='btn'>

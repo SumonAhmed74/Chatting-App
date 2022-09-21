@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {BsThreeDotsVertical} from 'react-icons/bs'
+import {FaUserFriends} from 'react-icons/fa'
 import { getDatabase, ref, onValue, set, push} from "firebase/database";
 import { getAuth } from "firebase/auth";
 import {BsCheck} from "react-icons/bs"
@@ -10,6 +11,7 @@ const UserList = () => {
   const db = getDatabase();
   const [userList,setUserList] = useState([])
   const [friendRequest,setFriendRequest] = useState([])
+  const [friend,setFriend] = useState([])
   const [change,setChange] = useState(false)
 
 
@@ -26,7 +28,7 @@ const UserList = () => {
       })
       setUserList(userArr)
     });
-  },[change])
+  },[])
 
  
   useEffect(()=>{
@@ -39,6 +41,19 @@ const UserList = () => {
 
           })
           setFriendRequest(friendRequestArr)
+      });
+},[change])
+
+  useEffect(()=>{
+    const friendArr=[]
+    const friendRef = ref(db,'friends/');
+    onValue(friendRef, (snapshot) => {
+    const data = snapshot.val();
+        snapshot.forEach(item=>{
+          friendArr.push(item.val().receverid+item.val().senderid)
+
+          })
+          setFriend(friendArr)
       });
 },[])
 
@@ -56,8 +71,10 @@ const friendRequestHandler = (info) =>{
 
   return (
     <div className='gruph-List userList'>
+        <div className='topBox'>
         <h2>User List</h2>
-            <BsThreeDotsVertical className='menuIcon'/>
+        <BsThreeDotsVertical className='menuIcon'/>
+        </div>
             <>
             {userList.map(users=>(
                 auth.currentUser.uid !== users.id &&
@@ -70,11 +87,17 @@ const friendRequestHandler = (info) =>{
                       <p>Today, 8:56pm</p>
                   </div>
                   <div className='userBtn'>
-                    {friendRequest.includes(users.id + auth.currentUser.uid) || friendRequest.includes(auth.currentUser.uid + users.id) ?
-                     <button><BsCheck /></button>
-                     :
-                     <button onClick={()=>{friendRequestHandler(users)}}>+</button>
+                    {friend.includes(users.id + auth.currentUser.uid) || friend.includes(auth.currentUser.uid + users.id)?
+                     <button><FaUserFriends /></button>
+                    :
+                    friendRequest.includes(users.id + auth.currentUser.uid) || friendRequest.includes(auth.currentUser.uid + users.id) ?
+                      <button><BsCheck /></button>
+                      :
+                      <button onClick={()=>{friendRequestHandler(users)}}>+</button>
+                     
                     }
+
+                  
                      
                   </div>
                  </div>

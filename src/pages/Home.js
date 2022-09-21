@@ -2,12 +2,14 @@ import React, {useState,useEffect} from 'react'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Alert,Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
- import Leftbar from '../components/Leftbar';
-import GruphList from '../components/GruphList';
+import Leftbar from '../components/Leftbar';
 import SeachBox from '../components/SeachBox';
 import FriendRequest from '../components/FriendRequest';
 import Friends from '../components/Friends';
 import UserList from '../components/UserList';
+import MyGroup from '../components/MyGroup'
+import BlockedUser from '../components/BlockedUser'
+import GruphRequest from '../components/GruphRequest';
  
 const Home = () => {
   const auth = getAuth();
@@ -38,14 +40,16 @@ const Home = () => {
       </Grid>
       <Grid item xs={4}>
         <SeachBox />
-        <GruphList />
+        <GruphRequest />
         <FriendRequest />
       </Grid>
       <Grid item xs={3}>
-        <Friends />
+        <Friends date="date" />
+        <MyGroup />
       </Grid>
       <Grid item xs={3}>
         <UserList />
+        <BlockedUser />
       </Grid>
     </Grid>
       

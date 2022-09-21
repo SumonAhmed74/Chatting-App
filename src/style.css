@@ -95,6 +95,7 @@ ol,ul{
 
 .login-part .login-option{
     display: flex;
+    margin-bottom: 8px;
 }
 
 .login-part .login-option .items{
@@ -143,7 +144,7 @@ ol,ul{
 
 .login-part .left .MuiButton-root{
     padding: 18px 113px;
-    margin-top: 25px;
+    margin-top: 5px;
     text-transform: none;
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
@@ -158,11 +159,28 @@ ol,ul{
     text-transform: none; 
 
 }
+ 
+.login-part .left .LinkBox{
+    margin-left: 18%;
+}
 
 .login-part .left .msg{
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    margin-top: 25px;
+    margin-top: 5px;
+}
+.login-part .left .forgot{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 8%;
+}
+.login-part .left .forgot a{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: blue !important;
+    text-decoration: none;
 }
 
 .login-part .left .msg a{
@@ -214,11 +232,54 @@ ol,ul{
     text-align: center;
 }
 
-.leftbar .profile-img{
+.leftbar .profileImgBox {
     width: 80px;
     height: 80px;
-    border-radius: 50px;  
-    margin-top: 28px;
+    border-radius: 50%;
+    margin: 0 auto;
+    padding-top: 38px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.leftbar .profile-img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;  
+}
+
+.img-preview {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    overflow: hidden;
+    margin-top: 38px;
+}
+
+
+
+.leftbar .profileImgBox .overly{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px; 
+    background: rgba(3, 3, 3, 0.264);
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 38px;
+    color: #fff;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.leftbar .profileImgBox:hover .overly{
+    opacity: 1;
 }
 
 .leftbar .icons li{
@@ -275,6 +336,40 @@ ol,ul{
     width: 500px;
     height: 400px;
     background: #fff;
+    padding: 50px;
+}
+
+.modalBox .profile-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 25%;
+}
+ .modalBox2{
+    width: 500px;
+    height: 400px;
+    background: #fff;
+    padding: 50px;
+    display: flex;
+    /* justify-content: center; */
+}
+
+.modalBox2 .profile-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 25%;
+}
+
+.modalBox .info li{
+    margin-bottom: 15px;
+    border-bottom: 1px solid #5436c1;
+    font-size: 18px;
+}
+
+.modalBox .info li span{
+    font-weight: bolder;
+    color: #5F34F5;
 }
 
 .searchBox{
@@ -352,7 +447,7 @@ ol,ul{
     border-radius: 20px;
     box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
     margin-top: 22px;
-    height: 617px;
+    height: 372px;
     overflow-y: scroll;
     position: relative;
 }
@@ -364,7 +459,7 @@ ol,ul{
     border-radius: 20px;
     box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
     margin-top: 22px;
-    height: 616px;
+    height: 372px;
     overflow-y: scroll;
     position: relative;
 }
@@ -389,12 +484,22 @@ ol,ul{
     color: #fff;
 }
 
-.gruph-List .menuIcon {
+.gruph-List .createbtn {
     position: absolute;
     top: 19px;
-    right: 22px;
+    right: 12px;
     font-size: 18px;
     color: #5F35F5;
+}
+.gruph-List .createbtn button {
+    padding: 3px 10px;
+    background: #5F35F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
 }
 
 .gruph-List h2{
@@ -430,9 +535,10 @@ ol,ul{
     border-bottom: 0;
 }
 
-.gruph-List .image img{
+.gruph-List .image img {
     width: 70px;
     height: 70px;
+    margin-right: 11px;
     border-radius: 50%;
 }
 
@@ -446,15 +552,431 @@ ol,ul{
     align-items: center;
 }
 
-.gruph-List .btn button{
-    width: 85px;
-    height: 30px;
+.gruph-List .btn button {
+    padding: 3px 10px;
     background: #5F35F5;
     border: 0;
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     color: #fff;
 }
 
+.MoodChange{
+    background: #000000;
+    color: #fff !important;
+}
+.MoodChange .name h3{
+    color: #fff !important;
+}
+.MoodChange .name p{
+    color: rgb(189, 185, 185) !important;
+}
+
+.MoodChange .gruph-List{
+    box-shadow: 0px 2px 11px 0px rgba(248, 245, 245, 0.35);
+}
+.MoodChange .gruph-List h2{
+    color: #fff ;
+}
+.MoodChange .gruph-List .btn p{
+    color: rgb(189, 185, 185);
+}
+.MoodChange .gruph-List .box{
+    border-bottom: .5px solid rgb(189, 185, 185);
+}
+
+.MoodChange .gruph-List .box:last-child {
+    border-bottom: 0;
+}
+
+.on,.off{
+    font-size: 38px;
+}
+
+.darkMode{
+    position: absolute;
+    top: 14px;
+    left: 22px;
+}
+.darkMode .text {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    width: 200px;
+    position: absolute;
+    top: 6px;
+    left: 41px;
+}
+
+.modalBox2 button{
+    width: 100%;
+    height: 30px;
+    background: #5F35F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.myGroup{
+    height: 222px;
+}
+.myGroup .box .name{
+    margin-left:0;
+}
+.myGroup .box .btns .btn{
+   
+    margin-top: 8px;
+}
+.blockedUsers .box .btns .btn{
+   
+    margin-top: 8px;
+}
+
+ .grophModalBox{
+  width: 400px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 20px;
+}
+
+.grophModalBox h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+.grophModalBox .textFiled {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    margin: 20px 0px;
+}
+
+.grophModalBox .MuiFormHelperText-sizeMedium {
+    position: absolute;
+    bottom: -37px;
+    left: -12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: red;
+}
+
+.grophModalBox .createModalBtn button{
+    width: 100%;
+    height: 40px;
+    background: #5F35F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.grophModalBox .GruphPicUpload{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.grophModalBox .GruphPicUpload .box{
+ margin-left: 50%;  
+ transform: translate(-40%);
+ margin-top: 20px;
+ margin-bottom: 5px;
+}
+
+.grophModalBox .GruphPicUpload img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.grophModalBox .GruphPicUpload .img-preview{
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.grophModalBox .imgCropperBox{
+    display: flex;
+    position: relative;
+}
+
+.grophModalBox .imgCropperBox button {
+    padding: 7px 34px;
+    background: #5F35F5;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    display: flex;
+    position: absolute;
+    right: -2px;
+    bottom: 0;
+}
+
+.friends .buttonBox{
+    display: flex;
+    flex-direction: column
+}
+
+.gruph-List .topBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =====================
+resetPassword part Start
+========================== */
+.resetPassword{
+    background: #5F35F5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.resetPassword .resetBox h1{
+    font-family: 'Nunito', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.resetPassword .resetBox .box{
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+}
+.resetPassword .resetBox .box h2{
+    font-family: 'Nunito', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #5F35F5;
+}
+.resetPassword .resetBox .box p{
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #3d3d3de5;
+    margin: 20px 0;
+}
+
+.resetPassword .resetBox .box .inputBox{
+    width: 100%;
+    margin-top: 20px;
+}
+.resetPassword .resetBox .box button{
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+}
+
+.gruphPageFriends{
+    height: 230px;
+}
+/* =====================
+resetPassword part End
+========================== */
+.MessageChat{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 12px;
+    border: 0;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    box-shadow: 0px 2px 11px 0px rgba(0,0,0,0.35);
+    margin-top: 22px;
+    height: 300px;
+    /* overflow-y: scroll; */
+    position: relative;
+}
+
+.messageAreaBox{
+    height: 65vh;
+    overflow-y: scroll hidden;
+    overflow-x: hidden;
+    padding: 15px;
+    border-bottom: 1.8px solid #8f8e8ecf;
+}
+
+.MessageChat{
+    height: 100vh !important;
+    padding: 20px 25px 20px 35px !important;
+}
+
+.MessageChat .image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #BAD1FF;
+    position: relative;
+    filter: drop-shadow(2px 1px 4px rgba(90, 88, 88, 0.557));
+}
+.MessageChat .image img{
+   width: 100%;
+   border-radius: 50%;
+}
+
+.MessageChat .image .round{
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    background: #00FF75;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 2px solid #eaeef6;
+}
+
+.MessageChat .topAreaBox .nameBox h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+.MessageChat .topAreaBox .nameBox p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4D4D4D;
+}
+.MessageChat .topAreaBox .nameBox{
+        margin-left: 18px;
+        margin-top: 10px;
+}
+
+.MessageChat .topAreaBox .profileBox{
+    display: flex;
+}
+
+.MessageChat .topAreaBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.8px solid #8f8e8ecf;
+    padding-bottom: 20px;
+}
+
+.MessageChat .topAreaBox .menuIcon{
+    font-size: 22px;
+}
+
+.MessageChat .messageAreaBox .msg{
+    position: relative;
+}
+
+.MessageChat .messageAreaBox .msg p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    padding: 11px 40px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.MessageChat .messageAreaBox .msg .sendShape::after{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    background: #F1F1F1;
+    clip-path: polygon(33% 61%, 0% 100%, 65% 100%);
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -12px;
+}
+.MessageChat .messageAreaBox .msg .receiveShape::after{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    background: #5F35F5;
+    clip-path: polygon(33% 61%, 0% 100%, 65% 100%);
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: -25px;
+}
+
+.MessageChat .messageAreaBox .msg h6{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #a1a0a0b6;
+    position: absolute;
+    bottom: -20px;
+}
+
+/* .MessageChat .messageAreaBox .msg .photos{
+    position: relative;
+} */
+
+.MessageChat .messageAreaBox .msg .imgDate{
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+.MessageChat .messageAreaBox .msg img{
+    width: 150px;
+    height: 220px;
+    padding: 6px;
+    margin-bottom: 30px;
+    margin-top: 45px;
+}
+
+.MessageChat .writeAreaBox .textField {
+    margin-top: 17px;
+    width: 80%;
+    background: #F1F1F1;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 52px 12px 12px;
+}
+.MessageChat .writeAreaBox .textField::placeholder{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    width: 70%;
+}
+
+.MessageChat .writeAreaBox .inputBox{
+    position: relative;
+}
+
+.MessageChat .writeAreaBox .inputBox .cameraIcon {
+    font-size: 20px;
+    position: absolute;
+    top: 25px;
+    right: 75px;
+}
+
+.MessageChat .writeAreaBox .sendIcon {
+    font-size: 16px;
+    background: #5F34F5;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 10px;
+    position: absolute;
+    top: 18px;
+    right: 0px;
+}
