@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { Alert,Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom'
  import Leftbar from '../components/Leftbar';
 import SeachBox from '../components/SeachBox';
 import Friends from '../components/Friends';

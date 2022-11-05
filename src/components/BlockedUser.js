@@ -11,19 +11,45 @@ const BlockedUser = () => {
 
 
     useEffect(()=>{
-        const blockedFriendsArr = [];
-        const starCountRef = ref(db, 'blockUsers/');
+        const starCountRef = ref(db, 'blockUser/');
             onValue(starCountRef, (snapshot) => {
+              const blockedFriendsArr = [];
              snapshot.forEach((info)=>{
-                blockedFriendsArr.push({
-                    name: info.val().blockedName,
+              if(info.val().blockById == auth.currentUser.uid){
+                  blockedFriendsArr.push({
+                    id: info.key,
+                    block: info.val().block,
+                    blockId: info.val().blockId,
                     date: info.val().date,
                 })
+              }
+              else if(info.val().blockId == auth.currentUser.uid){
+                blockedFriendsArr.push({
+                  id: info.key,
+                  blockByName: info.val().blockByName,
+                  blockById: info.val().blockById,
+                  date: info.val().date,
+              })
+              }
+              
              })
              setBlockedUsers(blockedFriendsArr)
             });
     },[])
-console.log(blockedUser)
+
+    const unblockHandler = (item)=>{
+      set(ref(db, 'friends/'+item.id), {
+        recevername: auth.currentUser.displayName,
+        receverid: auth.currentUser.uid,
+        sendername: item.block,
+        senderid: item.blockId,
+        date: item.date,
+      }).then(()=>{
+        remove(ref(db, "blockUser/"+item.id))
+      })
+
+    }
+
 
   return (
     <div className='gruph-List myGroup blockedUsers'>
@@ -35,14 +61,20 @@ console.log(blockedUser)
              <img src='./assets/images/friends1.png'/>
              </div>
                  <div className='name'>
-                     <h3>{item.name}</h3>                 
+                     <h3>{item.blockId ? item.block: item.blockByName}</h3>                 
                      <p>Dinner?</p>
                  </div>
                  <div className='btns'>
                      <p>{item.date}</p>
-                     <div className='btn'>
-                       <button>Unblock</button>
+                     {item.blockById
+                     ?
+                     " "
+                     :
+                    <div className='btn'>
+                       <button onClick={()=>unblockHandler(item)}>Unblock</button>
                      </div>
+                    }
+                     
                  </div>
               </div>
         ))}

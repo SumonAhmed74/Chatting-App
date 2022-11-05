@@ -1,20 +1,25 @@
 import React,{useEffect, useState} from 'react'
 import {Modal,Box,Typography } from '@mui/material';
 import {AiOutlineHome,AiOutlineMessage,AiOutlineCloudUpload} from 'react-icons/ai'
-import {IoIosNotificationsOutline} from 'react-icons/io'
+import {IoMdNotifications} from 'react-icons/io'
 import {FiSettings} from 'react-icons/fi'
 import {GoSignOut} from 'react-icons/go'
 import { getAuth, signOut,onAuthStateChanged,updateProfile } from "firebase/auth";
 import { getStorage, ref, uploadString, getDownloadURL } from "firebase/storage";
+import { getDatabase, push, ref as nref, set, onValue } from 'firebase/database'
 import { useNavigate,Link } from 'react-router-dom'
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
+import { useSelector,useDispatch} from 'react-redux'
+import { notification, notificationArry } from '../reducers/notificationSlice';
+import { notificationList } from '../reducers/notificationListArr';
 
 
 const Leftbar = (props) => {
     const auth = getAuth();
     const navigate = useNavigate();
-
+    const db = getDatabase();
+    const dispatch=useDispatch();
     const storage = getStorage();
 
     const [image, setImage] = useState();
@@ -29,7 +34,9 @@ const Leftbar = (props) => {
     const [open2,setOpen2] = useState(false)
     const [loading,setLoading] = useState(false)
     const [change,setChange] = useState(false)
+    const [groupNotifyList,setGroupNotifyList] = useState([])
 
+    const data=useSelector((state)=>state)
 
     const handleModalOpen = ()=>{
         setOpen(true)
@@ -104,6 +111,20 @@ const Leftbar = (props) => {
         
       };
 
+      useEffect(()=>{
+        const groupNotifyRef = nref(db, 'groupNotifications/');
+          onValue(groupNotifyRef, (snapshot) => {
+            const groupNotifyListArr = [];
+            snapshot.forEach((item)=>{
+             
+              groupNotifyListArr.push(item.val())
+            })
+            setGroupNotifyList(groupNotifyListArr)
+            dispatch(notification(groupNotifyListArr.length))
+          });
+         
+      },[db])
+   
 
   return (
      <div className='leftbar'>
@@ -135,7 +156,13 @@ const Leftbar = (props) => {
               
             </li>          
             <li className={props.active=='notification' && 'active'}>
-                <IoIosNotificationsOutline className='icon'/>
+            <Link to='/notification'>
+            <IoMdNotifications className='icon'/>
+               </Link>
+               {groupNotifyList &&
+               <span className='badge'>{data.notification.amount}</span>
+               }
+               
             </li>          
             <li className={props.active=='setting' && 'active'}>
                 <FiSettings className='icon'/>

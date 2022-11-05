@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {TextField,Button} from '@mui/material'
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const ResetPassword = () => {

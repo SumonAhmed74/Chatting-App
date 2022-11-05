@@ -7,6 +7,7 @@ import {BsToggleOff,BsToggleOn} from 'react-icons/bs'
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Chatting from './pages/Chatting';
+import Notification from './pages/Notification';
 
 function App() {
   const auth = getAuth();
@@ -55,6 +56,7 @@ function App() {
       <Route path="/home" element={<Home />}></Route>
       <Route path="/reset" element={<ResetPassword />}></Route>
       <Route path="/chat" element={<Chatting />}></Route>
+      <Route path="/notification" element={<Notification />}></Route>
     </Routes>
   </BrowserRouter>
   </div>

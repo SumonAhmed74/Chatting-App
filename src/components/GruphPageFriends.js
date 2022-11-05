@@ -38,8 +38,10 @@ const GruphPageFriends = (props) => {
     },[])    
 
     const ChatMessageHandler = (item)=>{
+      console.log(item)
       const userInfo ={}
       if(item.receverid == auth.currentUser.uid){
+        userInfo.status = "single"
         userInfo.id = item.senderid
         userInfo.name = item.sendername
       }

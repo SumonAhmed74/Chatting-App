@@ -20,6 +20,7 @@ const GruphRequest = () => {
     const [groupTaglineErr,setGroupTaglineErr]=useState('')
     const [groupList,setGroupList]=useState([])
     const [check,setCheck]= useState(false)
+    const [groupMembar,setGroupMembar]=useState([])
     
     const [image, setImage] = useState('');
   const [cropData, setCropData] = useState("#");
@@ -59,10 +60,11 @@ const GruphRequest = () => {
         }  
     }
 
+
     useEffect(()=>{
-      const groupListErr = [];
       const groupListRef = ref(db, 'groups/');
         onValue(groupListRef, (snapshot) => {
+          const groupListErr = [];
           snapshot.forEach((item)=>{
             groupListErr.push({
               groupName: item.val().groupName,
@@ -77,13 +79,24 @@ const GruphRequest = () => {
     },[check])
 
     const JoinRequestHandler = (item)=>{
-      set(push(ref(db, 'joinRequest')), {
-       adminId: item.adminId,
+      set(push(ref(db, 'joinGroupRequest')), {
        groupId: item.groupId,
+       groupName: item.groupName,
+       groupTagline: item.groupTagline,
+       adminId: item.adminId,
        userName: auth.currentUser.displayName,
        userId: auth.currentUser.uid,
        userProfile: auth.currentUser.photoURL,
-      })
+      });
+      set(push(ref(db, 'groupNotifications')), {
+       groupId: item.groupId,
+       groupName: item.groupName,
+       groupTagline: item.groupTagline,
+       adminId: item.adminId,
+       userName: auth.currentUser.displayName,
+       userId: auth.currentUser.uid,
+       userProfile: auth.currentUser.photoURL,
+      });
     }
 
     const grupProfileUploadHandler =(e)=>{
@@ -121,6 +134,21 @@ const GruphRequest = () => {
       }
     };
 
+    useEffect(()=>{
+      const groupListRef = ref(db, 'groupMembars/');
+      onValue(groupListRef, (snapshot) => {
+        const groupErr = [];
+        snapshot.forEach((group)=>{
+         if(group.val().userId==auth.currentUser.uid){
+          groupErr.push(group.val().groupId)
+         }
+         
+        })
+       setGroupMembar(groupErr)
+      });
+    },[])
+
+
   return (
     <div className='gruph-List'>
         <h2>Groups Request</h2>
@@ -138,9 +166,12 @@ const GruphRequest = () => {
                <h3>{info.groupName}</h3>
                <p>{info.groupTagline}</p>
            </div>
+           {groupMembar.indexOf(info.groupId) == -1 && 
            <div className='btn'>
-               <button onClick={()=>JoinRequestHandler(info)}>Join</button>
-           </div>
+           <button onClick={()=>JoinRequestHandler(info)}>Join</button>
+          </div>
+           }
+           
           </div>
         ))}
        

@@ -891,7 +891,7 @@ resetPassword part End
     display: inline-block;
     padding: 11px 40px;
     border-radius: 5px;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .MessageChat .messageAreaBox .msg .sendShape::after{
@@ -925,6 +925,14 @@ resetPassword part End
     position: absolute;
     bottom: -20px;
 }
+.MessageChat .messageAreaBox .msg h5{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #a1a0a0b6;
+    position: absolute;
+    top: 38px;
+}
 
 /* .MessageChat .messageAreaBox .msg .photos{
     position: relative;
@@ -935,13 +943,18 @@ resetPassword part End
     bottom: 10px;
     right: 0;
 }
+.MessageChat .messageAreaBox .msg .name{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
 
 .MessageChat .messageAreaBox .msg img{
     width: 150px;
     height: 220px;
     padding: 6px;
     margin-bottom: 30px;
-    margin-top: 45px;
+    margin-top: 60px;
 }
 
 .MessageChat .writeAreaBox .textField {
@@ -980,3 +993,48 @@ resetPassword part End
     top: 18px;
     right: 0px;
 }
+
+.NotificationBox{
+    margin-top: 26px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+    height: 80vh;
+}
+
+.NotificationBox .box{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(20, 20, 20, 0.25);
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+}
+.NotificationBox .box .icon{
+    font-size: 24px;
+    margin-right: 20px;
+}
+.NotificationBox .box p{
+    width: 97%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+.leftbar .icons  .badge{
+    position: relative;
+}
+
+.badge {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    color: #11175D;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    right: 15px;
+}
+

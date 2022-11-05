@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {BsThreeDotsVertical} from 'react-icons/bs'
 import { Alert } from '@mui/material';
-import { getDatabase, ref, onValue, set, push} from "firebase/database";
+import { getDatabase, ref, onValue, set, push, remove} from "firebase/database";
 import { getAuth } from "firebase/auth";
 import {RiMessage2Line} from 'react-icons/ri'
 
@@ -12,9 +12,10 @@ const Friends = (props) => {
  
 
     useEffect(()=>{
-        const friendsArray = []
+        
         const friendsRef = ref(db, 'friends/');
         onValue(friendsRef, (snapshot) => {
+          const friendsArray = []
           snapshot.forEach((item)=>{
             if(auth.currentUser.uid==item.val().receverid || auth.currentUser.uid==item.val().senderid){
                 friendsArray.push({
@@ -24,25 +25,41 @@ const Friends = (props) => {
                   recevername: item.val().recevername,
                   senderid: item.val().senderid,
                   sendername: item.val().sendername,
+                  friendId: item.key,
                 })
             }
           })
           setFriends(friendsArray)
         });
-
     },[])    
 
-    const blockUserHandler =(info)=>{
-      set(push(ref(db, 'blockUsers')), {
-        blockedName: info.sendername,
-        blockedId: info.senderid,
-        userName: auth.currentUser.displayName,
-        userId: auth.currentUser.uid,
-        date: `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
-      });
+    const blockUserHandler =(item)=>{
+      console.log(item)
+      if(auth.currentUser.uid == item.senderid){
+        set(push(ref(db, 'blockUser')), {
+          block: item.sendername,
+          blockId: item.senderid,
+          blockByName: item.recevername,
+          blockById: item.receverid,
+           date: `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
+        }).then(()=>{
+          remove(ref(db, "friends/"+item.friendId))
+        })
+      }else{
+         set(push(ref(db, 'blockUser')), {
+          block: item.sendername,
+          blockId: item.senderid,
+          blockByName: item.recevername,
+          blockById: item.receverid,
+          date: `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
+        }).then(()=>{
+          remove(ref(db, "friends/"+item.friendId))
+        })
+        
+      }
     }
     
-
+   
   return (
     <div className='gruph-List friends'>
        <div className='topBox'>
@@ -72,11 +89,11 @@ const Friends = (props) => {
                       <div className='btn'>
                         <p>{item.date}</p>
                       </div>
-                     
-                      <div className='btn'>
+                    
+                     <div className='btn'>
                       <button onClick={()=>blockUserHandler(item)}>block</button>
                       </div>
-                      
+                  
                      </>
                       :
                       <div className='btn'>
