@@ -8,6 +8,7 @@ import {Modal,Typography,Box,Button,LinearProgress,Alert} from '@mui/material'
 import { 
   getStorage, 
   ref as sref, 
+  push as spush,
   uploadBytesResumable, 
   getDownloadURL 
   } from "firebase/storage";
@@ -126,9 +127,10 @@ const Message = () => {
   const msgImgUrlHandler =(e)=>{
     setFile(e.target.files[0])
   }
+   let zero=0;
  
   const msgImgUploadHandler =()=>{
-    const SingleImgRef = sref(storage, 'MsgSingleImages');
+    const SingleImgRef = sref(storage, 'MsgSingleImages/'+file.name);
     const uploadTask = uploadBytesResumable(SingleImgRef, file);
 
     uploadTask.on('state_changed', 

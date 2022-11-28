@@ -895,6 +895,7 @@ resetPassword part End
     position: absolute;
     bottom: 10px;
     right: 0;
+    /* background: rgba(36, 35, 35, 0.278); */
 }
 
 .MessageChat .messageAreaBox .msg p{
