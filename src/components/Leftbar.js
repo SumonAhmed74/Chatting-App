@@ -121,7 +121,7 @@ const Leftbar = (props) => {
             })
             setGroupNotifyList(groupNotifyListArr)
             dispatch(notification(groupNotifyListArr.length))
-          });
+          })
          
       },[db])
    
@@ -159,13 +159,22 @@ const Leftbar = (props) => {
             <Link to='/notification'>
             <IoMdNotifications className='icon'/>
                </Link>
-               {groupNotifyList &&
-               <span className='badge'>{data.notification.amount}</span>
+               {data.notification.amount == '0'
+               ?
+              ''
+               :
+               groupNotifyList &&
+                <span className='badge'>{data.notification.amount}</span>
+                
                }
+               
                
             </li>          
             <li className={props.active=='setting' && 'active'}>
-                <FiSettings className='icon'/>
+            <Link to='/setting'>
+            <FiSettings className='icon'/>
+               </Link>
+                
             </li>          
             <li>
                 <GoSignOut className='icon' onClick={logOutHandle}/>

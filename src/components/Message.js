@@ -46,6 +46,7 @@ const Message = () => {
      if(msg != ""){
       if(user.status == "gruph"){
         console.log("ati akti gruph mag")
+        setMsg('')
         set(push(ref(db,"groupMsg")),{
           msg: msg,
           time: sendTime,
@@ -177,7 +178,6 @@ const Message = () => {
   }
 );
   }
-console.log(msgList)
  
 
 
@@ -214,14 +214,14 @@ console.log(msgList)
       ?
       item.whoReciverId == user.id &&
       <div className='msg' style={alignRight}>
-      <h5 className='name' style={dateReceive}>{item.whoSenderName}</h5>
+      <h5 className='Sendname' style={dateReceive}>{item.whoSenderName}</h5>
       <p className='receiveShape' style={msgReceive}>{item.msg}</p>
       <h6 style={dateReceive}>{item.time}</h6>
       </div>
       :
       item.whoReciverId == user.id &&
       <div className='msg' style={alignRight}>
-      <h5 className='name' style={dateReceive}>{item.whoSenderName}</h5>
+      <h5 className='Sendname' style={dateReceive}>{item.whoSenderName}</h5>
       <img style={imgSend} src={item.img}/>
       <h6 className='imgDate' style={dateReceive}>{item.time}</h6>
       </div>
@@ -407,6 +407,9 @@ const dateSend={
   left:'2px',
 }
 const dateReceive={
+  right:'2px',
+}
+const dateReceive2={
   right:'2px',
 }
 

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Chatting from './pages/Chatting';
 import Notification from './pages/Notification';
+import Setting from './pages/Setting';
 
 function App() {
   const auth = getAuth();
@@ -57,6 +58,7 @@ function App() {
       <Route path="/reset" element={<ResetPassword />}></Route>
       <Route path="/chat" element={<Chatting />}></Route>
       <Route path="/notification" element={<Notification />}></Route>
+      <Route path="/setting" element={<Setting />}></Route>
     </Routes>
   </BrowserRouter>
   </div>

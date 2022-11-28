@@ -50,6 +50,10 @@ ol,ul{
     position: relative;
 }
 
+.registration-part .left .msg{
+    margin-left: 65px;
+}
+
 .registration-part .left .MuiFormHelperText-sizeMedium {
     margin: 0;
     color: red;
@@ -883,6 +887,15 @@ resetPassword part End
 .MessageChat .messageAreaBox .msg{
     position: relative;
 }
+.MessageChat .messageAreaBox .Sendmsg{
+    position: relative;
+}
+
+.MessageChat .messageAreaBox .msg .Sendname {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
 
 .MessageChat .messageAreaBox .msg p{
     font-family: 'Poppins', sans-serif;
@@ -1038,3 +1051,121 @@ resetPassword part End
     right: 15px;
 }
 
+.profileSetting {
+    width: 100%;
+    height: 85vh;
+    margin-top: 40px;
+    border-radius: 20px;
+    padding: 24px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.38);
+    -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.38);
+    box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.38);
+}
+.MoodChange .profileSetting {
+    width: 100%;
+    height: 85vh;
+    margin-top: 40px;
+    border-radius: 20px;
+    padding: 24px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 5px -1px rgba(78, 78, 78, 0.38);
+    -moz-box-shadow: 0px 0px 5px -1px rgba(70, 70, 70, 0.38);
+    box-shadow: 0px 0px 5px -1px rgba(63, 63, 63, 0.38);
+}
+
+.profileSetting h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.profileSetting .box img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+}
+
+.profileSetting .box{
+    display: flex;
+    align-items: center;
+    margin-top: 45px;
+    position: relative;
+}
+
+.profileSetting .box::after{
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background: rgb(0, 0, 0, 0.25);
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    content: '';
+}
+
+.profileSetting h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #000000;
+}
+.profileSetting p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.MoodChange .profileSetting p{
+    color: #F1F1F1;
+}
+
+.profileSetting .box .name{
+    margin-left: 30px;
+}
+
+.profileSetting .allEditItem{
+    margin-top: 60px;
+}
+
+.profileSetting .editBox{
+    margin-top: 34px;
+    margin-left: 30px;
+    display: flex;
+    transition: 0.4s;
+}
+
+.profileSetting .editBox:hover{
+    color: #5F34F5;
+}
+
+.profileSetting .editBox h4{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    transition: 0.4s;
+}
+
+.MoodChange .profileSetting .editBox h4{
+    color: #fff;
+}
+
+.profileSetting .editBox h4:hover{
+    color: #5F34F5;
+}
+
+.profileSetting .editBox .editIcon{
+    font-size: 22px;
+    margin-right: 35px;
+}
+
+.gridBox{
+    display: flex;
+}
+
+.accountSetting{
+    margin-left: 33px;
+}
